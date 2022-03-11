@@ -1,17 +1,18 @@
-import React from 'react';
-import styles from './Search.module.scss';
+/* eslint react/prop-types: 0 */
+import React from 'react'
+import styles from './Search.module.scss'
 
-const Search = ({ setSearch, updatePageNumber}) => {
-    let searchBtn = (e) => {
-        e.preventDefault();
-    }
+const Search = ({ setSearch, updatePageNumber }) => {
+  const searchBtn = (e) => {
+    e.preventDefault()
+  }
 
-    return (
+  return (
         <form className={`${styles.search} d-flex flex-sm-row flex-column align-items-center justify-content-center gap-4 mb-5`}>
-            <input 
+            <input
             onChange={(e) => {
-                updatePageNumber(1);
-                setSearch(e.target.value);
+              updatePageNumber(1)
+              setSearch(e.target.value)
             }}
             placeholder='Search for characters'
             className={styles.input}
@@ -24,7 +25,7 @@ const Search = ({ setSearch, updatePageNumber}) => {
                 Search
             </button>
         </form>
-    )
+  )
 }
 
-export default Search;
+export default Search

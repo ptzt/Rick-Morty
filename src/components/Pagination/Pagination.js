@@ -1,23 +1,22 @@
-import React,{useState,useEffect} from 'react'
+/* eslint react/prop-types: 0 */
+import React, { useState, useEffect } from 'react'
 import ReactPaginate from 'react-paginate'
 
 const Pagination = ({ pageNumber, info, updatePageNumber }) => {
+  const pageChange = (data) => {
+    updatePageNumber(data.selected + 1)
+  }
 
-    let pageChange = (data) => {
-        updatePageNumber(data.selected + 1)
-    };
+  const [width, setWidth] = useState(window.innerWidth)
+  const updateDimensions = () => {
+    setWidth(window.innerWidth)
+  }
+  useEffect(() => {
+    window.addEventListener('resize', updateDimensions)
+    return () => window.removeEventListener('resize', updateDimensions)
+  }, [])
 
-    const [width, setWidth] = useState(window.innerWidth);
-    const updateDimensions = () => {
-        setWidth(window.innerWidth);
-    };
-    useEffect(() => {
-        window.addEventListener("resize", updateDimensions);
-        return () => window.removeEventListener("resize", updateDimensions);
-    }, [])
-
-
-    return (
+  return (
         <>
         <style jsx>
             {`
@@ -35,7 +34,7 @@ const Pagination = ({ pageNumber, info, updatePageNumber }) => {
             }
             `}
             </style>
-            <ReactPaginate 
+            <ReactPaginate
                 className='pagination justify-content-center my-4 gap-4'
                 nextLabel='Next'
                 previousLabel='Prev'
@@ -44,7 +43,7 @@ const Pagination = ({ pageNumber, info, updatePageNumber }) => {
                 activeClassName='active'
                 pageClassName='page-item'
                 pageLinkClassName='page-link'
-                forcePage={pageNumber === 1 ? 0 : pageNumber -1}
+                forcePage={pageNumber === 1 ? 0 : pageNumber - 1}
                 marginPagesDisplayed={width < 576 ? 1 : 2}
                 pageRangeDisplayed={width < 576 ? 1 : 2}
                 pageCount={info?.pages}
@@ -52,7 +51,7 @@ const Pagination = ({ pageNumber, info, updatePageNumber }) => {
             >
             </ReactPaginate>
         </>
-    )
+  )
 }
 
-export default Pagination;
+export default Pagination

@@ -1,11 +1,13 @@
-import styles from "./Card.module.scss";
+/* eslint react/prop-types: 0 */
+import React from 'react'
+import styles from './Card.module.scss'
 
 const Card = ({ results }) => {
-  let display;
+  let display
 
   if (results) {
     display = results.map((x) => {
-      let { id, image, name, status, location } = x;
+      const { id, image, name, status, location } = x
 
       return (
         <div
@@ -24,22 +26,22 @@ const Card = ({ results }) => {
           </div>
 
           {(() => {
-            if (status === "Dead") {
+            if (status === 'Dead') {
               return (
                 <div
                   className={`${styles.badge} position-absolute badge bg-danger`}
                 >
                   {status}
                 </div>
-              );
-            } else if (status === "Alive") {
+              )
+            } else if (status === 'Alive') {
               return (
                 <div
                   className={`${styles.badge} position-absolute badge bg-success`}
                 >
                   {status}
                 </div>
-              );
+              )
             } else {
               return (
                 <div
@@ -47,17 +49,17 @@ const Card = ({ results }) => {
                 >
                   {status}
                 </div>
-              );
+              )
             }
           })()}
         </div>
-      );
-    });
+      )
+    })
   } else {
-    display = "No characters found :/";
+    display = 'No characters found :/'
   }
 
-  return <>{display}</>;
-};
+  return <>{display}</>
+}
 
-export default Card;
+export default Card

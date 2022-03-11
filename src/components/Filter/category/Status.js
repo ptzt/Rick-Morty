@@ -1,8 +1,10 @@
-import FilterBTN from '../FilterBTN';
+/* eslint react/prop-types: 0 */
+import React from 'react'
+import FilterBTN from '../FilterBTN'
 
 const Status = ({ updateStatus, updatePageNumber }) => {
-    let status = ["Alive", "Dead", "Unknown"];
-    return (
+  const status = ['Alive', 'Dead', 'Unknown']
+  return (
         <div className='accordion-item'>
             <h2 className='accordion-header' id='headingOne'>
                 <button
@@ -29,7 +31,7 @@ const Status = ({ updateStatus, updatePageNumber }) => {
                 </div>
             </div>
         </div>
-    )
+  )
 }
 
-export default Status;
+export default Status
