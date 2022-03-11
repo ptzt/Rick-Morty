@@ -13,10 +13,10 @@ const Episodes = () => {
 
   useEffect(() => {
     (async function () {
-      let data = await fetch(api).then((res) => res.json())
+      const data = await fetch(api).then((res) => res.json())
       setInfo(data)
 
-      let a = await Promise.all(
+      const a = await Promise.all(
         data.residents.map((x) => {
           return fetch(x).then((res) => res.json())
         })
@@ -44,7 +44,7 @@ const Episodes = () => {
         </div>
           <div className='col-lg-8 col-12'>
             <div className='row'>
-              <Card results={results} />
+              <Card page='/location/' results={results} />
             </div>
           </div>
       </div>

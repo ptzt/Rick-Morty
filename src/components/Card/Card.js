@@ -1,8 +1,9 @@
 /* eslint react/prop-types: 0 */
 import React from 'react'
 import styles from './Card.module.scss'
+import { Link } from 'react-router-dom'
 
-const Card = ({ results }) => {
+const Card = ({ page, results }) => {
   let display
 
   if (results) {
@@ -10,18 +11,22 @@ const Card = ({ results }) => {
       const { id, image, name, status, location } = x
 
       return (
-        <div
+        <Link
+          style={{ textDecoration: 'none' }}
+          to={`${page}${id}`}
           key={id}
-          className="col-lg-4 col-md-6 col-sm-6 col-12 mb-4 position-relative text-dark"
+          className='col-lg-4 col-md-6 col-sm-6 col-12 mb-4 position-relative text-dark'
         >
           <div
             className={`${styles.card} d-flex flex-column justify-content-center`}
           >
             <img className={`${styles.img} img-fluid`} src={image} alt="" />
-            <div className="fs-5 fw-bold mb-4">{name}</div>
-            <div className="">
-              <div className="fs-6 fw-normal">Last location</div>
-              <div className="fs-5">{location.name}</div>
+            <div className={`${styles.content}`}>
+              <div className="fs-5 fw-bold mb-4">{name}</div>
+              <div className="">
+                <div className="fs-6 fw-normal">Last location</div>
+                <div className="fs-5">{location.name}</div>
+              </div>
             </div>
           </div>
 
@@ -52,7 +57,7 @@ const Card = ({ results }) => {
               )
             }
           })()}
-        </div>
+        </Link>
       )
     })
   } else {

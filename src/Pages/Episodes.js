@@ -6,6 +6,7 @@ import InputGroup from '../components/Filter/category/InputGroup'
 const Episodes = () => {
   const [results, setResults] = useState([])
   const [info, setInfo] = useState([])
+  // eslint-disable-next-line no-unused-vars
   const { air_date, episode, name } = info
   const [id, setID] = useState(1)
 
@@ -13,10 +14,10 @@ const Episodes = () => {
 
   useEffect(() => {
     (async function () {
-      let data = await fetch(api).then((res) => res.json())
+      const data = await fetch(api).then((res) => res.json())
       setInfo(data)
 
-      let a = await Promise.all(
+      const a = await Promise.all(
         data.characters.map((x) => {
           return fetch(x).then((res) => res.json())
         })
@@ -43,7 +44,7 @@ const Episodes = () => {
         </div>
           <div className='col-lg-8 col-12'>
             <div className='row'>
-              <Card results={results} />
+              <Card page='/episodes/' results={results} />
             </div>
           </div>
       </div>

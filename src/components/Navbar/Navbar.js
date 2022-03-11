@@ -8,7 +8,7 @@ const Navbar = () => {
         <Link to='/' className='navbar-brand fs-3 ubuntu'>
           Rick & Morty <span className='text-primary'>Wiki</span>
         </Link>
-        <style jsx>{`
+        <style jsx='true'>{`
           button[aria-expanded='false'] > .close {
             display: none;
           }        
@@ -38,7 +38,7 @@ const Navbar = () => {
           <NavLink to='/episodes' className='nav-link'>
             Episode
           </NavLink>
-          <NavLink activeClassName='active' to='/location' className='nav-link'>
+          <NavLink className={({ isActive }) => 'nav-link' + (isActive ? 'active' : '')} to='/location'>
             Location
           </NavLink>
           </div>
