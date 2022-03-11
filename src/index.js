@@ -7,6 +7,9 @@ import reportWebVitals from './reportWebVitals'
 ReactDOM.render(
   <React.StrictMode>
     <App />
+    <footer className='footer'>
+        <div>developed by <a className='footer-link' href="https://github.com/ptzt">ptzt</a></div>
+      </footer>
   </React.StrictMode>,
   document.getElementById('root')
 )

@@ -78,9 +78,6 @@ const Home = () => {
         pageNumber={pageNumber}
         updatePageNumber={updatePageNumber}
       />
-      <footer className='footer'>
-        <div>developed by <a className='footer-link' href="https://github.com/ptzt">ptzt</a></div>
-      </footer>
     </div>
   )
 }
