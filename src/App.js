@@ -18,14 +18,14 @@ function App () {
         <Navbar />
       </div>
       <Routes>
-        <Route path='/' element={<Home/>} />
-        <Route path='/:id' element={<CardDetails/>} />
+        <Route path='/' element={<Home />} />
+        <Route path='/:id' element={<CardDetails />} />
 
-        <Route path='/episodes' element={<Episodes/>} />
-        <Route path='/episodes/:id' element={<CardDetails/>} />
+        <Route path='/episodes' element={<Episodes />} />
+        <Route path='/episodes/:id' element={<CardDetails />} />
 
-        <Route path='/location' element={<Location/>} />
-        <Route path='/location/:id' element={<CardDetails/>} />
+        <Route path='/location' element={<Location />} />
+        <Route path='/location/:id' element={<CardDetails />} />
 
       </Routes>
     </Router>
@@ -53,32 +53,35 @@ const Home = () => {
   }, [api])
 
   return (
-  <div className="App">
-    <h1 className="text-center mb-3">Characters</h1>
-    <Search setSearch={setSearch} updatePageNumber={updatePageNumber}/>
-    <div className="container">
-      <div className="row">
-        <Filter
-          pageNumber={pageNumber}
-          status={status}
-          updateStatus={updateStatus}
-          updateGender={updateGender}
-          updateSpecies={updateSpecies}
-          updatePageNumber={updatePageNumber}
-        />
-        <div className="col-lg-8 col-12">
-          <div className="row">
-            <Card page= '/' results={results} />
+    <div className="App">
+      <h1 className="text-center mb-3">Characters</h1>
+      <Search setSearch={setSearch} updatePageNumber={updatePageNumber} />
+      <div className="container">
+        <div className="row">
+          <Filter
+            pageNumber={pageNumber}
+            status={status}
+            updateStatus={updateStatus}
+            updateGender={updateGender}
+            updateSpecies={updateSpecies}
+            updatePageNumber={updatePageNumber}
+          />
+          <div className="col-lg-8 col-12">
+            <div className="row">
+              <Card page='/' results={results} />
             </div>
+          </div>
         </div>
       </div>
+      <Pagination
+        info={info}
+        pageNumber={pageNumber}
+        updatePageNumber={updatePageNumber}
+      />
+      <footer className='footer'>
+        <div>developed by <a className='footer-link' href="https://github.com/ptzt">ptzt</a></div>
+      </footer>
     </div>
-    <Pagination
-      info={info}
-      pageNumber={pageNumber}
-      updatePageNumber={updatePageNumber}
-    />
-  </div>
   )
 }
 
